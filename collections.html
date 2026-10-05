@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collections | ANAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation (Same as home page) -->
+    <nav class="navbar">
+        <div class="logo">ANAN</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collections.html" aria-current="page">Collections</a>
+            <a href="#">Enquiries</a>
+        </div>
+    </nav>
+
+    <main class="section-container collection-page">
+        <h1 class="section-title">Jewellery Collections</h1>
+        <p class="collection-intro">Browse our jewellery catalogue. Please enquire for pricing and availability.</p>
+
+        <section class="collection-carousel" aria-label="Jewellery collection gallery">
+            <div class="gallery-viewport">
+                <div class="gallery-track">
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1000&q=85" alt="Gold necklace with delicate detailing" loading="eager">
+                        <div class="gallery-caption"><h2>Heritage Gold Necklace</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1000&q=85" alt="Gold earrings displayed in warm light" loading="lazy">
+                        <div class="gallery-caption"><h2>Royal Gold Earrings</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=85" alt="Traditional gold jewellery detail" loading="lazy">
+                        <div class="gallery-caption"><h2>Temple Gold Pendant</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=85" alt="Gold ring with a gemstone" loading="lazy">
+                        <div class="gallery-caption"><h2>Gemstone Gold Ring</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85" alt="Pair of elegant gold drop earrings" loading="lazy">
+                        <div class="gallery-caption"><h2>Modern Drop Earrings</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85" alt="Gold bracelet jewellery" loading="lazy">
+                        <div class="gallery-caption"><h2>Everyday Gold Bracelet</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1000&q=85" alt="Gold hoop earrings" loading="lazy">
+                        <div class="gallery-caption"><h2>Classic Gold Hoops</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1000&q=85" alt="Layered gold chain necklace" loading="lazy">
+                        <div class="gallery-caption"><h2>Layered Chain Necklace</h2></div>
+                    </article>
+                    <article class="gallery-card">
+                        <img class="gallery-image" src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85" alt="Gold jewellery with gemstone detail" loading="lazy">
+                        <div class="gallery-caption"><h2>Gemstone Pendant</h2></div>
+                    </article>
+                </div>
+            </div>
+            <button class="gallery-control gallery-previous" type="button" data-gallery-previous aria-label="Previous jewellery images">&#x2039;</button>
+            <button class="gallery-control gallery-next" type="button" data-gallery-next aria-label="Next jewellery images">&#x203A;</button>
+            <p class="gallery-count" aria-live="polite">1 / 1</p>
+        </section>
+    </main>
+
+    <!-- Global Footer (Same as home page) -->
+    <footer class="footer">
+        <div>
+            <h3 style="color: white; margin-bottom: 1rem;">ANAN</h3>
+            <p style="color: #c8c8d0;">Showcase catalogue for India.</p>
+        </div>
+        <div>
+            <h4 style="color: white; margin-bottom: 1rem;">Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="collections.html">All Collections</a>
+        </div>
+        <div>
+            <h4 style="color: white; margin-bottom: 1rem;">Client Services</h4>
+            <a href="#">Make an Enquiry</a>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQ</a>
+            <button class="consent-settings" type="button" data-open-consent>Cookie preferences</button>
+        </div>
+    </footer>
+
+    <section class="consent-banner" aria-labelledby="consent-title" hidden>
+        <div>
+            <h2 id="consent-title">Your privacy choices</h2>
+            <p>Choose whether to allow optional cookies. Essential storage keeps your choice; optional cookies are not currently active.</p>
+        </div>
+        <div class="consent-actions">
+            <button type="button" data-consent="essential">Essential only</button>
+            <button type="button" data-consent="optional">Allow optional cookies</button>
+        </div>
+    </section>
+
+    <script>
+        const consentBanner = document.querySelector('.consent-banner');
+        const consentKey = 'anan-jewels-cookie-consent';
+
+        function openConsent() {
+            consentBanner.hidden = false;
+        }
+
+        if (!localStorage.getItem(consentKey)) {
+            openConsent();
+        }
+
+        document.querySelectorAll('[data-consent]').forEach((button) => {
+            button.addEventListener('click', () => {
+                localStorage.setItem(consentKey, button.dataset.consent);
+                consentBanner.hidden = true;
+            });
+        });
+
+        document.querySelector('[data-open-consent]').addEventListener('click', openConsent);
+
+        const galleryViewport = document.querySelector('.gallery-viewport');
+        const galleryTrack = document.querySelector('.gallery-track');
+        const galleryCount = document.querySelector('.gallery-count');
+
+        function galleryStep() {
+            const card = galleryTrack.querySelector('.gallery-card');
+            return card.getBoundingClientRect().width + parseFloat(getComputedStyle(galleryTrack).gap);
+        }
+
+        function updateGalleryCount() {
+            const step = galleryStep();
+            const maxScroll = galleryViewport.scrollWidth - galleryViewport.clientWidth;
+            const pageCount = Math.round(maxScroll / step) + 1;
+            const currentPage = Math.round(galleryViewport.scrollLeft / step) + 1;
+            galleryCount.textContent = `${currentPage} / ${pageCount}`;
+        }
+
+        function moveGallery(direction) {
+            const maxScroll = galleryViewport.scrollWidth - galleryViewport.clientWidth;
+            const atStart = galleryViewport.scrollLeft <= 1;
+            const atEnd = galleryViewport.scrollLeft >= maxScroll - 1;
+
+            if ((direction < 0 && atStart) || (direction > 0 && atEnd)) {
+                galleryViewport.scrollTo({ left: direction < 0 ? maxScroll : 0, behavior: 'smooth' });
+                return;
+            }
+
+            galleryViewport.scrollBy({ left: direction * galleryStep(), behavior: 'smooth' });
+        }
+
+        galleryViewport.addEventListener('scroll', updateGalleryCount);
+        window.addEventListener('resize', updateGalleryCount);
+        document.querySelector('[data-gallery-previous]').addEventListener('click', () => moveGallery(-1));
+        document.querySelector('[data-gallery-next]').addEventListener('click', () => moveGallery(1));
+        updateGalleryCount();
+    </script>
+
+</body>
+</html>
