@@ -10,69 +10,108 @@
 
     <!-- Navigation (Same as home page) -->
     <nav class="navbar">
-        <div class="logo">ANAN</div>
+        <a class="logo" href="index.html" aria-label="ANAN home">
+            <img src="Feature%20Images/logo_black.png" alt="">
+        </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="collections.html" aria-current="page">Collections</a>
-            <a href="#">Enquiries</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <main class="section-container collection-page">
-        <h1 class="section-title">Jewellery Collections</h1>
-        <p class="collection-intro">Browse our jewellery catalogue. Please enquire for pricing and availability.</p>
+    <main class="collection-directory-page">
+        <header class="collection-directory-heading">
+            <p class="eyebrow">ANAN FINE JEWELLERY</p>
+            <h1>COLLECTIONS</h1>
+            <p>Every ANAN collection in one place. Open a collection to explore every piece.</p>
+        </header>
+        <div class="collection-actions collection-directory-actions">
+            <a class="collection-action collection-back" href="index.html">← Back to Home</a>
+            <a class="collection-action collection-enquiry-link" href="contact.html">Enquire Now</a>
+        </div>
 
-        <section class="collection-carousel" aria-label="Jewellery collection gallery">
-            <div class="gallery-viewport">
-                <div class="gallery-track">
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1000&q=85" alt="Gold necklace with delicate detailing" loading="eager">
-                        <div class="gallery-caption"><h2>Heritage Gold Necklace</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1000&q=85" alt="Gold earrings displayed in warm light" loading="lazy">
-                        <div class="gallery-caption"><h2>Royal Gold Earrings</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=85" alt="Traditional gold jewellery detail" loading="lazy">
-                        <div class="gallery-caption"><h2>Temple Gold Pendant</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=85" alt="Gold ring with a gemstone" loading="lazy">
-                        <div class="gallery-caption"><h2>Gemstone Gold Ring</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85" alt="Pair of elegant gold drop earrings" loading="lazy">
-                        <div class="gallery-caption"><h2>Modern Drop Earrings</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85" alt="Gold bracelet jewellery" loading="lazy">
-                        <div class="gallery-caption"><h2>Everyday Gold Bracelet</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1000&q=85" alt="Gold hoop earrings" loading="lazy">
-                        <div class="gallery-caption"><h2>Classic Gold Hoops</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1000&q=85" alt="Layered gold chain necklace" loading="lazy">
-                        <div class="gallery-caption"><h2>Layered Chain Necklace</h2></div>
-                    </article>
-                    <article class="gallery-card">
-                        <img class="gallery-image" src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85" alt="Gold jewellery with gemstone detail" loading="lazy">
-                        <div class="gallery-caption"><h2>Gemstone Pendant</h2></div>
-                    </article>
-                </div>
-            </div>
-            <button class="gallery-control gallery-previous" type="button" data-gallery-previous aria-label="Previous jewellery images">&#x2039;</button>
-            <button class="gallery-control gallery-next" type="button" data-gallery-next aria-label="Next jewellery images">&#x203A;</button>
-            <p class="gallery-count" aria-live="polite">1 / 1</p>
+        <section class="collection-directory-grid" aria-label="Explore ANAN collections">
+            <a class="collection-tile" href="alpha-collection.html" aria-label="Alpha collection, 14 pieces">
+                <img src="Feature%20Images/statement-pieces.jpg" alt="Gemstone jewellery from the Alpha collection" loading="eager">
+                <span class="collection-tile-title">Alpha</span>
+                <span class="collection-tile-details">
+                    <span>Confident forms, made to stand apart.</span>
+                    <span class="collection-piece-count">14 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="ring-collection.html" aria-label="Rings collection, 49 pieces">
+                <img src="ring/color/AIR-29.JPG" alt="Color gemstone ring" loading="lazy">
+                <span class="collection-tile-title">Rings</span>
+                <span class="collection-tile-details">
+                    <span>A considered ring for every story.</span>
+                    <span class="collection-piece-count">49 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=awards" aria-label="Awards collection, 3 pieces">
+                <img src="awards%20images/AJB-8564%20(3).JPG" alt="Award-winning ANAN jewellery" loading="lazy">
+                <span class="collection-tile-title">Awards</span>
+                <span class="collection-tile-details">
+                    <span>Recognised creations with a story to tell.</span>
+                    <span class="collection-piece-count">3 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=necklace" aria-label="Necklace collection, 39 pieces">
+                <img src="necklace/color/AJN-5501.1.JPG" alt="ANAN necklace with delicate detailing" loading="lazy">
+                <span class="collection-tile-title">Necklaces</span>
+                <span class="collection-tile-details">
+                    <span>Distinctive details, close to the heart.</span>
+                    <span class="collection-piece-count">39 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=azzure" aria-label="Azzure Bloom collection, 18 pieces">
+                <img src="Feature%20Images/azzure.webp" alt="Azzure Bloom jewellery" loading="lazy">
+                <span class="collection-tile-title">Azzure Bloom</span>
+                <span class="collection-tile-details">
+                    <span>Expressive color with a natural spirit.</span>
+                    <span class="collection-piece-count">18 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=bracelet" aria-label="Bracelet collection, 33 pieces">
+                <img src="bracelet/color%20diamond/AJBR-6595.3.JPG" alt="Color diamond bracelet" loading="lazy">
+                <span class="collection-tile-title">Bracelets</span>
+                <span class="collection-tile-details">
+                    <span>Considered accents for every occasion.</span>
+                    <span class="collection-piece-count">33 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=brooch" aria-label="Brooch collection, 21 pieces">
+                <img src="Feature%20Images/brooch.webp" alt="ANAN brooch jewellery" loading="lazy">
+                <span class="collection-tile-title">Brooches</span>
+                <span class="collection-tile-details">
+                    <span>Small statements, treasured for years.</span>
+                    <span class="collection-piece-count">21 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=arya" aria-label="Arya collection, 22 pieces">
+                <img src="Feature%20Images/arya.webp" alt="Arya jewellery collection" loading="lazy">
+                <span class="collection-tile-title">Arya</span>
+                <span class="collection-tile-details">
+                    <span>Modern heirlooms with a distinctive edge.</span>
+                    <span class="collection-piece-count">22 pieces</span>
+                </span>
+            </a>
+            <a class="collection-tile" href="jewellery-collection.html?category=pendant" aria-label="Pendant collection, 37 pieces">
+                <img src="pendants/color/AIP-14.JPG" alt="ANAN gemstone pendant" loading="lazy">
+                <span class="collection-tile-title">Pendants</span>
+                <span class="collection-tile-details">
+                    <span>A meaningful detail, made to be kept close.</span>
+                    <span class="collection-piece-count">37 pieces</span>
+                </span>
+            </a>
         </section>
+
     </main>
 
     <!-- Global Footer (Same as home page) -->
     <footer class="footer">
         <div>
-            <h3 style="color: white; margin-bottom: 1rem;">ANAN</h3>
+            <img class="footer-logo" src="Feature%20Images/logo.png" alt="ANAN">
             <p style="color: #c8c8d0;">Showcase catalogue for India.</p>
         </div>
         <div>
@@ -82,8 +121,8 @@
         </div>
         <div>
             <h4 style="color: white; margin-bottom: 1rem;">Client Services</h4>
-            <a href="#">Make an Enquiry</a>
-            <a href="#">Contact Us</a>
+            <a href="contact.html#contact-enquiry">Make an Enquiry</a>
+            <a href="contact.html">Contact Us</a>
             <a href="#">FAQ</a>
             <button class="consent-settings" type="button" data-open-consent>Cookie preferences</button>
         </div>
@@ -121,41 +160,6 @@
 
         document.querySelector('[data-open-consent]').addEventListener('click', openConsent);
 
-        const galleryViewport = document.querySelector('.gallery-viewport');
-        const galleryTrack = document.querySelector('.gallery-track');
-        const galleryCount = document.querySelector('.gallery-count');
-
-        function galleryStep() {
-            const card = galleryTrack.querySelector('.gallery-card');
-            return card.getBoundingClientRect().width + parseFloat(getComputedStyle(galleryTrack).gap);
-        }
-
-        function updateGalleryCount() {
-            const step = galleryStep();
-            const maxScroll = galleryViewport.scrollWidth - galleryViewport.clientWidth;
-            const pageCount = Math.round(maxScroll / step) + 1;
-            const currentPage = Math.round(galleryViewport.scrollLeft / step) + 1;
-            galleryCount.textContent = `${currentPage} / ${pageCount}`;
-        }
-
-        function moveGallery(direction) {
-            const maxScroll = galleryViewport.scrollWidth - galleryViewport.clientWidth;
-            const atStart = galleryViewport.scrollLeft <= 1;
-            const atEnd = galleryViewport.scrollLeft >= maxScroll - 1;
-
-            if ((direction < 0 && atStart) || (direction > 0 && atEnd)) {
-                galleryViewport.scrollTo({ left: direction < 0 ? maxScroll : 0, behavior: 'smooth' });
-                return;
-            }
-
-            galleryViewport.scrollBy({ left: direction * galleryStep(), behavior: 'smooth' });
-        }
-
-        galleryViewport.addEventListener('scroll', updateGalleryCount);
-        window.addEventListener('resize', updateGalleryCount);
-        document.querySelector('[data-gallery-previous]').addEventListener('click', () => moveGallery(-1));
-        document.querySelector('[data-gallery-next]').addEventListener('click', () => moveGallery(1));
-        updateGalleryCount();
     </script>
 
 </body>

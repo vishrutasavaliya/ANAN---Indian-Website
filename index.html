@@ -3,111 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANAN | India</title>
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Discover ANAN fine jewellery, crafted to be treasured for generations.">
+    <title>ANAN | Fine Jewellery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="landing-page">
-    <nav class="navbar">
-        <div class="logo">ANAN</div>
+    <a class="skip-link" href="#home-panels">Skip to content</a>
+
+    <nav class="navbar landing-navbar" aria-label="Main navigation">
+        <a class="logo" href="index.html" aria-label="ANAN home">
+            <img src="Feature%20Images/logo_black.png" alt="">
+        </a>
+        <span class="nav-note">Fine jewellery, thoughtfully made</span>
         <div class="nav-links">
             <a href="index.html" aria-current="page">Home</a>
             <a href="collections.html">Collections</a>
-            <a href="#">Enquiries</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <div class="landing-hero">
-        <header class="hero">
-            <h1>A Legacy, Worn Close</h1>
-            <p>Discover fine jewellery shaped by Indian artistry and made to be treasured for generations.</p>
-        </header>
-    </div>
-
-    <section class="category-section" aria-labelledby="category-title">
-        <header class="category-heading">
-            <h2 id="category-title">Explore by Category</h2>
-        </header>
-        <div class="category-carousel">
-            <div class="category-viewport" aria-label="Jewellery categories">
-                <div class="category-track">
-                    <a class="category-card" href="collections.html" aria-label="Browse rings">
-                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85" alt="Gold ring with a gemstone" loading="lazy">
-                        <span>Rings</span>
-                    </a>
-                    <a class="category-card" href="collections.html" aria-label="Browse pendants">
-                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85" alt="Gold necklace and pendant" loading="lazy">
-                        <span>Pendants</span>
-                    </a>
-                    <a class="category-card" href="collections.html" aria-label="Browse nosepins">
-                        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85" alt="Traditional gold nose jewellery" loading="lazy">
-                        <span>Nosepins</span>
-                    </a>
-                    <a class="category-card" href="collections.html" aria-label="Browse earrings">
-                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85" alt="Gold earrings" loading="lazy">
-                        <span>Earrings</span>
-                    </a>
-                    <a class="category-card" href="collections.html" aria-label="Browse necklaces">
-                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=85" alt="Layered gold necklaces" loading="lazy">
-                        <span>Necklaces</span>
-                    </a>
-                </div>
+    <main class="horizontal-site" id="home-panels" tabindex="0" aria-label="ANAN home. Scroll horizontally to explore.">
+        <section class="home-panel hero-panel" id="home" aria-labelledby="hero-title">
+            <img class="hero-image" src="Feature%20Images/best%20seller.jpg" alt="ANAN best seller jewellery collection">
+            <div class="hero-shade"></div>
+            <div class="hero-copy">
+                <h1 id="hero-title">Made to be<br>kept close.</h1>
+                <p class="hero-description">Jewellery that holds a little more meaning.</p>
             </div>
-            <button class="category-control category-previous" type="button" data-category-previous aria-label="Previous categories">&#x2039;</button>
-            <button class="category-control category-next" type="button" data-category-next aria-label="Next categories">&#x203A;</button>
-        </div>
-    </section>
+            <a class="hero-collection-link" href="collections.html" aria-label="View Collection">
+                <span aria-hidden="true">↗</span> View Collection
+            </a>
+            <p class="scroll-hint" aria-hidden="true">Scroll to explore <span>→</span></p>
+        </section>
 
-    <!-- Global Footer -->
-    <footer class="footer">
-        <div>
-            <h3 style="color: white; margin-bottom: 1rem;">ANAN</h3>
-            <p style="color: #c8c8d0;">Showcase catalogue for India.</p>
-        </div>
-        <div>
-            <h4 style="color: white; margin-bottom: 1rem;">Explore</h4>
-            <a href="index.html">Home</a>
-            <a href="collections.html">All Collections</a>
-        </div>
-        <div>
-            <h4 style="color: white; margin-bottom: 1rem;">Client Services</h4>
-            <a href="#">Make an Enquiry</a>
-            <a href="#">Contact Us</a>
-            <a href="#">FAQ</a>
-        </div>
-    </footer>
+        <section class="home-panel alpha-panel" aria-labelledby="alpha-title">
+            <a class="alpha-feature-link" href="alpha-collection.html" aria-label="Explore the Alpha collection">
+                <span class="alpha-feature-copy">
+                    <span class="alpha-feature-title" id="alpha-title">ALPHA</span>
+                </span>
+                <img class="alpha-image" src="Feature%20Images/statement-pieces.jpg" alt="Statement gemstone ring from the ANAN Alpha collection">
+            </a>
+        </section>
+
+        <section class="home-panel category-panel" id="categories" aria-labelledby="category-title">
+            <div class="panel-intro">
+                <h2 id="category-title">RINGS AND<br>COLLECTIONS</h2>
+                <p>Explore color, classic and white ring designs, each made to make a statement.</p>
+                <a class="text-link" href="ring-collection.html">View all rings <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="home-category-rail" aria-label="Ring collections">
+                <a class="home-category-card" href="ring-collection.html?category=color">
+                    <img src="ring/color/AIR-29.JPG" alt="Color gemstone ring">
+                    <span>Color Rings <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="ring-collection.html?category=cst">
+                    <img src="ring/cst/AIR-36.JPG" alt="CST gemstone ring">
+                    <span>CST Rings <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="ring-collection.html?category=white">
+                    <img src="ring/white/AIR-20.JPG" alt="White diamond ring">
+                    <span>White Rings <span aria-hidden="true">↗</span></span>
+                </a>
+            </div>
+            <p class="scroll-hint" aria-hidden="true">Keep exploring <span>→</span></p>
+        </section>
+
+        <section class="home-panel alpha-panel" aria-labelledby="awards-title">
+            <a class="alpha-feature-link" href="jewellery-collection.html?category=awards" aria-label="Explore Awards jewellery">
+                <span class="alpha-feature-copy">
+                    <span class="alpha-feature-title" id="awards-title">AWARDS</span>
+                </span>
+                <img class="alpha-image" src="awards%20images/AJB-8564%20(3).JPG" alt="Award-winning ANAN jewellery">
+            </a>
+        </section>
+
+        <section class="home-panel category-panel" aria-labelledby="necklace-title">
+            <div class="panel-intro">
+                <h2 id="necklace-title">NECKLACES AND<br>COLLECTIONS</h2>
+                <p>Discover necklaces across color, classic and white gold collections.</p>
+                <a class="text-link" href="jewellery-collection.html?category=necklace">View all necklaces <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="home-category-rail" aria-label="Necklace collections">
+                <a class="home-category-card" href="jewellery-collection.html?category=necklace&filter=color">
+                    <img src="necklace/color/AJN-5501.1.JPG" alt="Color necklace collection">
+                    <span>Color Necklaces <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=necklace&filter=cst">
+                    <img src="necklace/cst/AJN-1419.1.JPG" alt="CST necklace collection">
+                    <span>CST Necklaces <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=necklace&filter=white">
+                    <img src="necklace/white/AJN-4685.1.JPG" alt="White necklace collection">
+                    <span>White Necklaces <span aria-hidden="true">↗</span></span>
+                </a>
+            </div>
+            <p class="scroll-hint" aria-hidden="true">Keep exploring <span>→</span></p>
+        </section>
+
+        <section class="home-panel alpha-panel" aria-labelledby="azzure-title">
+            <a class="alpha-feature-link" href="jewellery-collection.html?category=azzure" aria-label="Explore Azzure Bloom jewellery">
+                <span class="alpha-feature-copy">
+                    <span class="alpha-feature-title" id="azzure-title">AZZURE</span>
+                </span>
+                <img class="alpha-image" src="Feature%20Images/azzure.webp" alt="Azzure Bloom jewellery design">
+            </a>
+        </section>
+
+        <section class="home-panel category-panel" aria-labelledby="bracelet-title">
+            <div class="panel-intro">
+                <h2 id="bracelet-title">BRACELETS AND<br>COLLECTIONS</h2>
+                <p>Explore color, classic and white diamond bracelets made for every occasion.</p>
+                <a class="text-link" href="jewellery-collection.html?category=bracelet">View all bracelets <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="home-category-rail" aria-label="Bracelet collections">
+                <a class="home-category-card" href="jewellery-collection.html?category=bracelet&filter=color">
+                    <img src="bracelet/color%20diamond/AJBR-6595.3.JPG" alt="Color diamond bracelet collection">
+                    <span>Color Bracelets <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=bracelet&filter=cst">
+                    <img src="bracelet/cst/AIBR-103.JPG" alt="CST bracelet collection">
+                    <span>CST Bracelets <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=bracelet&filter=white">
+                    <img src="bracelet/white%20diamond/AIBR-34.JPG" alt="White diamond bracelet collection">
+                    <span>White Bracelets <span aria-hidden="true">↗</span></span>
+                </a>
+            </div>
+            <p class="scroll-hint" aria-hidden="true">Keep exploring <span>→</span></p>
+        </section>
+
+        <section class="home-panel alpha-panel" aria-labelledby="brooch-title">
+            <a class="alpha-feature-link" href="jewellery-collection.html?category=brooch" aria-label="Explore ANAN brooches">
+                <span class="alpha-feature-copy">
+                    <span class="alpha-feature-title" id="brooch-title">BROOCHES</span>
+                </span>
+                <img class="alpha-image" src="Feature%20Images/brooch.webp" alt="ANAN brooch jewellery">
+            </a>
+        </section>
+
+        <section class="home-panel category-panel" aria-labelledby="brooches-title">
+            <div class="panel-intro">
+                <h2 id="brooches-title">JEWELLERY AND<br>COLLECTIONS</h2>
+                <p>Explore ANAN's distinctive brooch designs, crafted as wearable keepsakes.</p>
+                <a class="text-link" href="jewellery-collection.html?category=brooch">View all brooches <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="home-category-rail" aria-label="Brooch collection">
+                <a class="home-category-card" href="jewellery-collection.html?category=brooch">
+                    <img src="BROOCH/AJB-7588.JPG" alt="Gold brooch design">
+                    <span>Signature Brooches <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=brooch">
+                    <img src="BROOCH/AJB-7683.JPG" alt="Floral brooch design">
+                    <span>Floral Brooches <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=brooch">
+                    <img src="BROOCH/AJB-8564.JPG" alt="Statement brooch design">
+                    <span>Statement Brooches <span aria-hidden="true">↗</span></span>
+                </a>
+            </div>
+            <p class="scroll-hint" aria-hidden="true">Keep exploring <span>→</span></p>
+        </section>
+
+        <section class="home-panel alpha-panel" aria-labelledby="arya-title">
+            <a class="alpha-feature-link" href="jewellery-collection.html?category=arya" aria-label="Explore Arya jewellery">
+                <span class="alpha-feature-copy">
+                    <span class="alpha-feature-title" id="arya-title">ARYA</span>
+                </span>
+                <img class="alpha-image" src="Feature%20Images/arya.webp" alt="Arya jewellery collection">
+            </a>
+        </section>
+
+        <section class="home-panel category-panel" aria-labelledby="pendant-title">
+            <div class="panel-intro">
+                <h2 id="pendant-title">PENDANTS AND<br>COLLECTIONS</h2>
+                <p>Find a pendant for every story in color, classic and white designs.</p>
+                <a class="text-link" href="jewellery-collection.html?category=pendant">View all pendants <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="home-category-rail" aria-label="Pendant collections">
+                <a class="home-category-card" href="jewellery-collection.html?category=pendant&filter=color">
+                    <img src="pendants/color/AIP-14.JPG" alt="Color gemstone pendant collection">
+                    <span>Color Pendants <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=pendant&filter=cst">
+                    <img src="pendants/cst/AJP-1407%20A.JPG" alt="CST pendant collection">
+                    <span>CST Pendants <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="home-category-card" href="jewellery-collection.html?category=pendant&filter=white">
+                    <img src="pendants/white/AIP-1.JPG" alt="White pendant collection">
+                    <span>White Pendants <span aria-hidden="true">↗</span></span>
+                </a>
+            </div>
+            <p class="scroll-hint" aria-hidden="true">Keep exploring <span>→</span></p>
+    </main>
 
     <script>
-        const landingPage = document.querySelector('.landing-page');
-        const categoryViewport = document.querySelector('.category-viewport');
-        const categoryTrack = document.querySelector('.category-track');
+        const horizontalSite = document.querySelector('.horizontal-site');
+        const heroPanel = document.querySelector('.hero-panel');
+        const collectionButton = document.querySelector('.hero-collection-link');
 
-        function updateLandingHero() {
-            landingPage.classList.toggle('is-scrolled', window.scrollY > 80);
-        }
+        let scrollTarget = horizontalSite.scrollLeft;
+        let scrollFrame = null;
 
-        function categoryStep() {
-            const card = categoryTrack.querySelector('.category-card');
-            return card.getBoundingClientRect().width + parseFloat(getComputedStyle(categoryTrack).gap);
-        }
+        const animateHorizontalScroll = (distance) => {
+            if (scrollFrame === null) {
+                scrollTarget = horizontalSite.scrollLeft;
+            }
 
-        function moveCategories(direction) {
-            const maxScroll = categoryViewport.scrollWidth - categoryViewport.clientWidth;
-            const atStart = categoryViewport.scrollLeft <= 1;
-            const atEnd = categoryViewport.scrollLeft >= maxScroll - 1;
+            scrollTarget = Math.max(0, Math.min(
+                horizontalSite.scrollWidth - horizontalSite.clientWidth,
+                scrollTarget + distance
+            ));
 
-            if ((direction < 0 && atStart) || (direction > 0 && atEnd)) {
-                categoryViewport.scrollTo({ left: direction < 0 ? maxScroll : 0, behavior: 'smooth' });
+            if (scrollFrame !== null) {
                 return;
             }
 
-            categoryViewport.scrollBy({ left: direction * categoryStep(), behavior: 'smooth' });
-        }
+            let previousTime = 0;
+            const animate = (time) => {
+                const elapsed = previousTime ? time - previousTime : 16;
+                previousTime = time;
+                const remaining = scrollTarget - horizontalSite.scrollLeft;
 
-        document.querySelector('[data-category-previous]').addEventListener('click', () => moveCategories(-1));
-        document.querySelector('[data-category-next]').addEventListener('click', () => moveCategories(1));
-        window.addEventListener('scroll', updateLandingHero, { passive: true });
-        updateLandingHero();
+                if (Math.abs(remaining) < 0.5) {
+                    horizontalSite.scrollLeft = scrollTarget;
+                    scrollFrame = null;
+                    return;
+                }
+
+                horizontalSite.scrollLeft += remaining * (1 - Math.exp(-elapsed / 180));
+                scrollFrame = requestAnimationFrame(animate);
+            };
+
+            scrollFrame = requestAnimationFrame(animate);
+        };
+
+        heroPanel.addEventListener('pointermove', (event) => {
+            if (event.pointerType !== 'mouse') {
+                return;
+            }
+
+            const bounds = heroPanel.getBoundingClientRect();
+            collectionButton.style.left = `${event.clientX - bounds.left}px`;
+            collectionButton.style.top = `${event.clientY - bounds.top}px`;
+            collectionButton.classList.add('is-following');
+        });
+
+        heroPanel.addEventListener('pointerleave', () => {
+            collectionButton.classList.remove('is-following');
+        });
+
+        horizontalSite.addEventListener('wheel', (event) => {
+            if (window.matchMedia('(max-width: 760px)').matches || Math.abs(event.deltaY) < Math.abs(event.deltaX)) {
+                return;
+            }
+
+            event.preventDefault();
+            animateHorizontalScroll(event.deltaY * 2.2);
+        }, { passive: false });
+
+        document.addEventListener('keydown', (event) => {
+            if (window.matchMedia('(max-width: 760px)').matches
+                || event.altKey
+                || event.ctrlKey
+                || event.metaKey
+                || event.target.closest('a, button, input, textarea, select')) {
+                return;
+            }
+
+            if (event.key === 'ArrowRight') {
+                animateHorizontalScroll(450);
+            } else if (event.key === 'ArrowLeft') {
+                animateHorizontalScroll(-450);
+            }
+        });
     </script>
-
 </body>
 </html>

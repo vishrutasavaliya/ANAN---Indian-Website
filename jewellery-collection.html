@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Jewellery Collection | ANAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="index.html" aria-label="ANAN home">
+            <img src="Feature%20Images/logo_black.png" alt="">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="ring-collection.html">Rings</a>
+            <a href="collections.html">Collections</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="section-container collection-page local-collection-page vertical-collection-page">
+        <div class="collection-actions">
+            <a class="collection-action collection-back" href="index.html">← Back to Home</a>
+            <a class="collection-action collection-enquiry-link" href="contact.html">Enquire Now</a>
+        </div>
+        <p class="eyebrow">ANAN FINE JEWELLERY</p>
+        <h1 class="section-title" id="collection-title">Jewellery Collection</h1>
+        <p class="collection-intro" id="collection-intro">Explore the ANAN jewellery collection.</p>
+        <nav class="collection-filters" id="collection-filters" aria-label="Filter jewellery collection" hidden></nav>
+        <section class="collection-carousel" aria-label="Jewellery gallery">
+            <div class="gallery-viewport">
+                <div class="gallery-track" id="jewellery-gallery"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const collections = {
+            awards: {
+                title: 'Awards',
+                intro: 'Explore award-winning designs from ANAN.',
+                images: [
+                    ['awards images', 'AJB-8564 (3).JPG'],
+                    ['awards images', 'AJB-8573 (3).JPG'],
+                    ['awards images', 'AJBR-8628.JPG']
+                ]
+            },
+            necklace: {
+                title: 'Necklaces and Collections',
+                intro: 'Discover necklaces across color, classic and white collections.',
+                groups: {
+                    'Color Necklaces': ['AJN-5501.1.JPG', 'AJN-7879.JPG', 'AJN-8048.1.JPG', 'AJN-8048.JPG', 'AJN-8071.JPG', 'AJN-8077.JPG', 'AJN-8078.JPG', 'AJN-8927.JPG', 'AJN-9160.JPG', 'AJN-9236.JPG', 'AJN-9368.JPG', 'AJN-9562.JPG', 'AJN-9814.JPG', 'AJN-9943.JPG', 'AJN-9954.JPG'],
+                    'CST Necklaces': ['AJN-1419.1.JPG', 'AJN-7471.3.JPG', 'AJN-7472.2.JPG', 'AJN-8739.2.JPG', 'AJN-8839.3.JPG', 'AJN-9068.1.JPG', 'AJN-9762.JPG', 'AJN-9768.JPG', 'AJN-9769.JPG', 'AJN-9843.JPG'],
+                    'White Necklaces': ['AJN-4685.1.JPG', 'AJN-8399.1.JPG', 'AJN-8399.JPG', 'AJN-8710.JPG', 'AJN-8720 EX.JPG', 'AJN-9019.JPG', 'AJN-9398.1.JPG', 'AJN-9509 (7).JPG', 'AJN-9509.JPG', 'AJN-9575.JPG', 'AJN-9621.JPG', 'AJN-9642 (1).JPG', 'AJN-9694.JPG', 'AJN-9744.JPG']
+                }
+            },
+            azzure: {
+                title: 'Azzure Bloom',
+                intro: 'Explore the Azzure Bloom jewellery collection.',
+                images: [
+                    ['azzure bloom', 'AJBR-6837.1.JPG'], ['azzure bloom', 'AJBR-7070.JPG'], ['azzure bloom', 'AJEN-7471.1.JPG'],
+                    ['azzure bloom', 'AJER-6377.JPG'], ['azzure bloom', 'AJER-6416.JPG'], ['azzure bloom', 'AJER-6809.1.JPG'],
+                    ['azzure bloom', 'AJER-7165.3.JPG'], ['azzure bloom', 'AJER-7168.1.JPG'], ['azzure bloom', 'AJER-7175.2.JPG'],
+                    ['azzure bloom', 'AJER-7176.1.JPG'], ['azzure bloom', 'AJER-7178.2.JPG'], ['azzure bloom', 'AJN-7601.JPG'],
+                    ['azzure bloom', 'AJP-6375.1.JPG'], ['azzure bloom', 'AJP-6412.1.JPG'], ['azzure bloom', 'AJP-7166.1.JPG'],
+                    ['azzure bloom', 'AJP-8379.JPG'], ['azzure bloom', 'AJR-6431.1.JPG'], ['azzure bloom', 'AJR-6433.1.JPG']
+                ]
+            },
+            bracelet: {
+                title: 'Bracelets and Collections',
+                intro: 'Explore color, classic and white diamond bracelets.',
+                groups: {
+                    'Color Bracelets': ['AJBR-6595.3.JPG', 'AJBR-7999.1.JPG', 'AJBR-9303.JPG', 'AJBR-9332.JPG', 'AJBR-9734.JPG', 'AJBR-9735.JPG', 'AJBR-9897.JPG', 'AJBR-9901.JPG', 'AJBR-9902.JPG', 'AJBR-9971.JPG'],
+                    'CST Bracelets': ['AIBR-103.JPG', 'AJBR-6032.4.JPG', 'AJBR-6196.5.JPG', 'AJBR-6880.3.JPG', 'AJBR-8102.JPG', 'AJBR-8711.1.JPG', 'AJBR-8910.JPG', 'AJBR-9566.JPG', 'SBR-5620.JPG'],
+                    'White Diamond Bracelets': ['AIBR-34.JPG', 'AJBR-2534.7.JPG', 'AJBR-4509.10.JPG', 'AJBR-5258.6.JPG', 'AJBR-6214.3.JPG', 'AJBR-7995.JPG', 'AJBR-8725.4.JPG', 'AJBR-9141.3.JPG', 'AJBR-9811.JPG', 'AJBR-9827.JPG', 'AJBR-9857.JPG', 'AJBR-9912.JPG', 'AJBR-9968.JPG', 'SBR-562.JPG']
+                }
+            },
+            brooch: {
+                title: 'Jewellery and Collections',
+                intro: 'Discover ANAN brooches, crafted as wearable keepsakes.',
+                images: [
+                    ['BROOCH', 'AJB-7588.JPG'], ['BROOCH', 'AJB-7683(1).JPG'], ['BROOCH', 'AJB-7683.JPG'],
+                    ['BROOCH', 'AJB-7701 (2).jpg'], ['BROOCH', 'AJB-7701 (3).JPG'], ['BROOCH', 'AJB-7701(1).JPG'],
+                    ['BROOCH', 'AJB-7701.JPG'], ['BROOCH', 'AJB-7919(1).JPG'], ['BROOCH', 'AJB-7919.JPG'],
+                    ['BROOCH', 'AJB-8564.JPG'], ['BROOCH', 'AJB-8573.JPG'], ['BROOCH', 'AJB-8774 (1).JPG'],
+                    ['BROOCH', 'AJB-8774.JPG'], ['BROOCH', 'AJB-8822 (1).JPG'], ['BROOCH', 'AJB-8822.JPG'],
+                    ['BROOCH', 'AJB-8895 (1).JPG'], ['BROOCH', 'AJB-9579 (1).JPG'], ['BROOCH', 'AJB-9579.1.JPG'],
+                    ['BROOCH', 'AJB-9579.JPG'], ['BROOCH', 'SB-4900.JPG'], ['BROOCH', 'SP-5483.JPG']
+                ]
+            },
+            arya: {
+                title: 'Arya',
+                intro: 'Explore the Arya jewellery collection.',
+                images: [
+                    ['arya', 'AJBR-8487.JPG'], ['arya', 'AJBR-8497.JPG'], ['arya', 'AJBR-9644.JPG'],
+                    ['arya', 'AJER-8084.JPG'], ['arya', 'AJER-8087.JPG'], ['arya', 'AJER-8396.JPG'],
+                    ['arya', 'AJER-8482.JPG'], ['arya', 'AJER-8498.JPG'], ['arya', 'AJER-8511.JPG'],
+                    ['arya', 'AJER-8536.1.JPG'], ['arya', 'AJP-8085.JPG'], ['arya', 'AJP-8086.JPG'],
+                    ['arya', 'AJP-8390.JPG'], ['arya', 'AJP-8503.JPG'], ['arya', 'AJP-8518.2.JPG'],
+                    ['arya', 'AJP-9617.JPG'], ['arya', 'AJR-8083.1.JPG'], ['arya', 'AJR-8488.JPG'],
+                    ['arya', 'AJR-8499.JPG'], ['arya', 'AJR-8553.1.JPG'], ['arya', 'AJR-8553.JPG'],
+                    ['arya', 'AJR-9750.JPG']
+                ]
+            },
+            pendant: {
+                title: 'Pendants and Collections',
+                intro: 'Find a pendant for every story in color, classic and white designs.',
+                groups: {
+                    'Color Pendants': ['AIP-14.JPG', 'AIP-15.JPG', 'AIP-39.JPG', 'AIP-51.JPG', 'AIP-6.JPG', 'AJP-6615.2.JPG', 'AJP-9198.2.JPG', 'AJP-9210.2.JPG', 'AJP-9964.JPG', 'AJP-9972.JPG', 'AJP-9987.JPG', 'AJP-9999.JPG'],
+                    'CST Pendants': ['AJP-1407 A.JPG', 'AJP-5889.6.JPG', 'AJP-8925.JPG', 'AJP-9000.JPG', 'AJP-9327.JPG', 'AJP-9535.JPG', 'AJP-9681.JPG', 'AJP-9696.JPG', 'AJP-9760.JPG', 'SP-6789.JPG', 'SP-6790.JPG', 'SP-6791.JPG'],
+                    'White Pendants': ['AIP-1.JPG', 'AJP-8273.1.JPG', 'AJP-8467.3.JPG', 'AJP-8804.3.JPG', 'AJP-8884.2.JPG', 'AJP-8980.2.JPG', 'AJP-9209.1.JPG', 'AJP-9485.1.JPG', 'AJP-9491.1.JPG', 'AJP-9755 (2).jpg', 'AJP-9765.JPG', 'AJP-9844.JPG', 'AJP-9908.JPG']
+                }
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const requestedCategory = params.get('category');
+        const collection = collections[requestedCategory];
+
+        if (!collection) {
+            throw new Error(`Unknown jewellery collection: ${requestedCategory}`);
+        }
+
+        const gallery = document.querySelector('#jewellery-gallery');
+        const groups = Object.entries(collection.groups || {});
+        const requestedFilter = params.get('filter');
+        const filterSlug = (label) => label.startsWith('Color') ? 'color' : label.startsWith('CST') ? 'cst' : 'white';
+        const selectedGroup = groups.find(([label]) => filterSlug(label) === requestedFilter);
+        const pageTitle = selectedGroup ? selectedGroup[0] : collection.title;
+
+        document.title = `${pageTitle} | ANAN`;
+        document.querySelector('#collection-title').textContent = pageTitle;
+        document.querySelector('#collection-intro').textContent = selectedGroup
+            ? `Explore ${selectedGroup[0].toLowerCase()} in the ${collection.title} collection.`
+            : collection.intro;
+
+        if (groups.length) {
+            const filters = document.querySelector('#collection-filters');
+            filters.hidden = false;
+            const allFilter = document.createElement('a');
+            allFilter.href = `jewellery-collection.html?category=${encodeURIComponent(requestedCategory)}`;
+            allFilter.textContent = 'All';
+            if (!selectedGroup) {
+                allFilter.setAttribute('aria-current', 'page');
+            }
+            filters.append(allFilter);
+
+            groups.forEach(([label]) => {
+                const link = document.createElement('a');
+                link.href = `jewellery-collection.html?category=${encodeURIComponent(requestedCategory)}&filter=${filterSlug(label)}`;
+                link.textContent = label;
+                if (selectedGroup && selectedGroup[0] === label) {
+                    link.setAttribute('aria-current', 'page');
+                }
+                filters.append(link);
+            });
+        }
+
+        const images = collection.images
+            ? collection.images.map(([folder, filename], index) => ({ folder, filename, label: collection.title, index }))
+            : (selectedGroup ? [selectedGroup] : groups).flatMap(([label, filenames]) =>
+                filenames.map((filename, index) => ({ folder: requestedCategory === 'necklace' ? 'necklace' : requestedCategory === 'bracelet' ? 'bracelet' : 'pendants', subfolder: label.startsWith('Color') ? (requestedCategory === 'bracelet' ? 'color diamond' : 'color') : label.startsWith('CST') ? 'cst' : requestedCategory === 'bracelet' ? 'white diamond' : 'white', filename, label, index }))
+            );
+
+        images.forEach(({ folder, subfolder, filename, label, index }, imageIndex) => {
+            const card = document.createElement('article');
+            card.className = 'gallery-card';
+
+            const image = document.createElement('img');
+            image.className = 'gallery-image';
+            image.src = [folder, subfolder, filename].filter(Boolean).map(encodeURIComponent).join('/');
+            image.alt = `${label} design ${index + 1}`;
+            image.loading = 'eager';
+
+            const caption = document.createElement('div');
+            caption.className = 'gallery-caption';
+            const title = document.createElement('h2');
+            title.textContent = `${label} · ${String(imageIndex + 1).padStart(2, '0')}`;
+
+            caption.append(title);
+            card.append(image, caption);
+            gallery.append(card);
+        });
+
+    </script>
+</body>
+</html>
