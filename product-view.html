@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#a6a6a6">
+    <title>Design | ANAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="product-view-page">
+    <img class="product-view-backdrop" id="product-backdrop" alt="" aria-hidden="true">
+    <div class="product-view-shade" aria-hidden="true"></div>
+
+    <header class="product-view-header">
+        <h1 class="product-view-title" id="product-title"></h1>
+        <a class="product-view-close" href="collections.html" aria-label="Close design">×</a>
+    </header>
+
+    <main class="product-view-main">
+        <button class="product-view-nav product-view-previous" id="previous-design" type="button" aria-label="Previous design">‹</button>
+        <div class="product-view-stage">
+            <img class="product-view-image" id="product-image" alt="">
+        </div>
+        <button class="product-view-nav product-view-next" id="next-design" type="button" aria-label="Next design">›</button>
+    </main>
+
+    <div class="product-view-footer">
+        <span class="product-view-count" id="product-count" aria-live="polite"></span>
+        <div class="product-zoom-controls" aria-label="Image zoom controls">
+            <button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+            <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+        </div>
+        <a class="product-request-details" href="contact.html#contact-enquiry">Request Details</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const imagePath = params.get('image');
+        const title = params.get('title');
+        const collectionTitle = params.get('collection') || 'ANAN';
+        const returnTo = params.get('returnTo');
+        const itemIndex = Number(params.get('index'));
+        const allowedImageFolders = new Set([
+            'alpha', 'ring', 'necklace', 'bracelet', 'pendants',
+            'awards images', 'azzure bloom', 'BROOCH', 'arya'
+        ]);
+        const allowedCollectionPages = [
+            'alpha-collection.html',
+            'ring-collection.html',
+            'jewellery-collection.html'
+        ];
+
+        function getSafeReturnUrl() {
+            if (!returnTo) {
+                return 'collections.html';
+            }
+
+            const destination = new URL(returnTo, window.location.href);
+            const currentDirectory = window.location.pathname.slice(0, window.location.pathname.lastIndexOf('/') + 1);
+            const isAllowedPage = allowedCollectionPages.some((page) =>
+                destination.pathname === `${currentDirectory}${page}`
+            );
+
+            return destination.protocol === window.location.protocol && isAllowedPage
+                ? `${destination.pathname}${destination.search}${destination.hash}`
+                : 'collections.html';
+        }
+
+        function isAllowedImage(path) {
+            const segments = path ? decodeURIComponent(path).split('/') : [];
+            return segments.length >= 2 &&
+                allowedImageFolders.has(segments[0]) &&
+                segments.every((segment) =>
+                    segment && segment !== '.' && segment !== '..' && !segment.includes('\\')
+                );
+        }
+
+        if (!title || !isAllowedImage(imagePath) || !Number.isInteger(itemIndex) || itemIndex < 0) {
+            throw new Error('This design link is missing valid image details.');
+        }
+
+        const returnUrl = getSafeReturnUrl();
+        const galleryKey = `anan-product-gallery:${returnUrl}`;
+        const savedGallery = sessionStorage.getItem(galleryKey);
+        const gallery = savedGallery ? JSON.parse(savedGallery) : [{ image: imagePath, title }];
+
+        if (
+            !Array.isArray(gallery) ||
+            gallery.some((item) => !item || !isAllowedImage(item.image) || typeof item.title !== 'string') ||
+            !gallery[itemIndex] ||
+            gallery[itemIndex].image !== imagePath ||
+            gallery[itemIndex].title !== title
+        ) {
+            throw new Error('This design is not available in the selected collection.');
+        }
+
+        const image = document.querySelector('#product-image');
+        const backdrop = document.querySelector('#product-backdrop');
+        const pageTitle = document.querySelector('#product-title');
+        const stage = document.querySelector('.product-view-stage');
+        const previousButton = document.querySelector('#previous-design');
+        const nextButton = document.querySelector('#next-design');
+        let zoom = 1;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        image.src = imagePath;
+        image.alt = title;
+        backdrop.src = imagePath;
+        pageTitle.textContent = collectionTitle;
+        document.title = `${title} | ANAN`;
+        image.style.transform = 'translate(-50%, -50%) scale(1)';
+        document.querySelector('#product-count').textContent =
+            `${String(itemIndex + 1).padStart(2, '0')} / ${String(gallery.length).padStart(2, '0')}`;
+
+        function updateZoom(nextZoom, pointerX, pointerY) {
+            nextZoom = Math.min(4, Math.max(1, nextZoom));
+            if (nextZoom === zoom) {
+                return;
+            }
+
+            const bounds = stage.getBoundingClientRect();
+            const centerX = bounds.left + bounds.width / 2;
+            const centerY = bounds.top + bounds.height / 2;
+            const zoomRatio = nextZoom / zoom;
+            offsetX = (pointerX - centerX) * (1 - zoomRatio) + offsetX * zoomRatio;
+            offsetY = (pointerY - centerY) * (1 - zoomRatio) + offsetY * zoomRatio;
+            zoom = nextZoom;
+            image.style.transform =
+                `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${zoom})`;
+        }
+
+        function navigateTo(index) {
+            if (index < 0 || index >= gallery.length) {
+                return;
+            }
+
+            const destination = new URLSearchParams({
+                image: gallery[index].image,
+                title: gallery[index].title,
+                collection: collectionTitle,
+                index: String(index),
+                returnTo
+            });
+            window.location.assign(`product-view.html?${destination}`);
+        }
+
+        previousButton.disabled = itemIndex === 0;
+        nextButton.disabled = itemIndex === gallery.length - 1;
+        previousButton.addEventListener('click', () => navigateTo(itemIndex - 1));
+        nextButton.addEventListener('click', () => navigateTo(itemIndex + 1));
+
+        document.querySelectorAll('[data-zoom]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const direction = button.dataset.zoom === 'in' ? 1.2 : 1 / 1.2;
+                const bounds = stage.getBoundingClientRect();
+                updateZoom(zoom * direction, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+            });
+        });
+
+        stage.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            updateZoom(
+                zoom * (event.deltaY < 0 ? 1.15 : 1 / 1.15),
+                event.clientX,
+                event.clientY
+            );
+        }, { passive: false });
+
+        document.querySelector('.product-view-close').href = returnUrl;
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                window.location.href = returnUrl;
+            } else if (event.key === 'ArrowLeft') {
+                navigateTo(itemIndex - 1);
+            } else if (event.key === 'ArrowRight') {
+                navigateTo(itemIndex + 1);
+            }
+        });
+    </script>
+</body>
+</html>

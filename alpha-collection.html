@@ -15,25 +15,52 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="collections.html">Collections</a>
-            <a href="ring-collection.html">Rings</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <main class="section-container collection-page local-collection-page vertical-collection-page">
-        <div class="collection-actions">
+    <main class="collection-directory-page">
+        <header class="collection-directory-heading">
+            <h1>ALPHA</h1>
+            <p>Explore every piece in the Alpha collection.</p>
+        </header>
+        <div class="collection-actions collection-directory-actions">
             <a class="collection-action collection-back" href="index.html">← Back to Home</a>
             <a class="collection-action collection-enquiry-link" href="contact.html">Enquire Now</a>
         </div>
-        <p class="eyebrow">ANAN FINE JEWELLERY</p>
-        <h1 class="section-title">ALPHA</h1>
-        <p class="collection-intro">Explore every piece in the Alpha collection.</p>
-        <section class="collection-carousel" aria-label="Alpha collection gallery">
-            <div class="gallery-viewport">
-                <div class="gallery-track" id="alpha-gallery"></div>
-            </div>
-        </section>
+
+        <section class="collection-design-grid" id="alpha-gallery" aria-label="Alpha collection designs"></section>
     </main>
+
+    <footer class="footer">
+        <div>
+            <img class="footer-logo" src="Feature%20Images/logo.png" alt="ANAN">
+            <p style="color: #c8c8d0;">Showcase catalogue for India.</p>
+        </div>
+        <div>
+            <h4 style="color: white; margin-bottom: 1rem;">Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="collections.html">All Collections</a>
+        </div>
+        <div>
+            <h4 style="color: white; margin-bottom: 1rem;">Client Services</h4>
+            <a href="contact.html#contact-enquiry">Make an Enquiry</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">FAQ</a>
+            <button class="consent-settings" type="button" data-open-consent>Cookie preferences</button>
+        </div>
+    </footer>
+
+    <section class="consent-banner" aria-labelledby="consent-title" hidden>
+        <div>
+            <h2 id="consent-title">Your privacy choices</h2>
+            <p>Choose whether to allow optional cookies. Essential storage keeps your choice; optional cookies are not currently active.</p>
+        </div>
+        <div class="consent-actions">
+            <button type="button" data-consent="essential">Essential only</button>
+            <button type="button" data-consent="optional">Allow optional cookies</button>
+        </div>
+    </section>
 
     <script>
         const alphaImages = [
@@ -42,28 +69,58 @@
             'AJR-8263.1.JPG', 'AJR-8264.1.JPG', 'AJR-8278.1.JPG', 'AJR-8662.JPG',
             'AJR-8673.JPG', 'AJR-9348.JPG'
         ];
+        const alphaProducts = alphaImages.map((filename, index) => ({
+            image: `alpha/${encodeURIComponent(filename)}`,
+            title: `Alpha Design ${String(index + 1).padStart(2, '0')}`
+        }));
         const alphaGallery = document.querySelector('#alpha-gallery');
 
-        alphaImages.forEach((filename, index) => {
-            const card = document.createElement('article');
-            card.className = 'gallery-card';
+        alphaProducts.forEach(({ image: imagePath, title: designTitle }, index) => {
+            const card = document.createElement('a');
+            card.className = 'collection-design-tile';
+            card.setAttribute('aria-label', `View ${designTitle}`);
+            card.href = `product-view.html?${new URLSearchParams({
+                image: imagePath,
+                title: designTitle,
+                index: String(index),
+                collection: 'ALPHA',
+                returnTo: `${window.location.pathname}${window.location.search}`
+            })}`;
 
             const image = document.createElement('img');
-            image.className = 'gallery-image';
-            image.src = `alpha/${encodeURIComponent(filename)}`;
-            image.alt = `Alpha jewellery design ${index + 1}`;
+            image.className = 'collection-design-image';
+            image.src = imagePath;
+            image.alt = `Alpha jewellery design ${String(index + 1).padStart(2, '0')}`;
             image.loading = index === 0 ? 'eager' : 'lazy';
 
-            const caption = document.createElement('div');
-            caption.className = 'gallery-caption';
-            const title = document.createElement('h2');
-            title.textContent = `Alpha Design ${String(index + 1).padStart(2, '0')}`;
+            const title = document.createElement('span');
+            title.className = 'collection-design-title';
+            title.textContent = designTitle;
 
-            caption.append(title);
-            card.append(image, caption);
+            card.append(image, title);
             alphaGallery.append(card);
         });
 
+        const consentBanner = document.querySelector('.consent-banner');
+        const consentKey = 'anan-jewels-cookie-consent';
+
+        function openConsent() {
+            consentBanner.hidden = false;
+        }
+
+        if (!localStorage.getItem(consentKey)) {
+            openConsent();
+        }
+
+        document.querySelectorAll('[data-consent]').forEach((button) => {
+            button.addEventListener('click', () => {
+                localStorage.setItem(consentKey, button.dataset.consent);
+                consentBanner.hidden = true;
+            });
+        });
+
+        document.querySelector('[data-open-consent]').addEventListener('click', openConsent);
     </script>
+    <script src="product-viewer.js"></script>
 </body>
 </html>
