@@ -36,11 +36,11 @@
             <h2 class="product-lightbox-title"></h2>
             <button class="product-lightbox-close" type="button" aria-label="Close design">×</button>
         </header>
-        <button class="product-lightbox-nav product-lightbox-previous" type="button" aria-label="Previous design">‹</button>
+        <button class="product-lightbox-nav product-lightbox-previous" type="button" aria-label="Previous design">Previous</button>
         <div class="product-lightbox-stage">
             <img class="product-lightbox-image" alt="">
         </div>
-        <button class="product-lightbox-nav product-lightbox-next" type="button" aria-label="Next design">›</button>
+        <button class="product-lightbox-nav product-lightbox-next" type="button" aria-label="Next design">Next</button>
         <footer class="product-lightbox-footer">
             <span class="product-lightbox-count" aria-live="polite"></span>
             <div class="product-lightbox-zoom" aria-label="Image zoom controls">

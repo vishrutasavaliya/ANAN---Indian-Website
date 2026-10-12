@@ -287,7 +287,6 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.65rem;
     min-height: 48px;
     padding: 0.8rem 1.15rem;
     border-radius: 5px;
@@ -329,11 +328,6 @@ button {
 
 .scroll-hint {
     right: 5.2vw;
-}
-
-.scroll-hint span {
-    padding-left: 0.45rem;
-    font-size: 1rem;
 }
 
 .category-panel {
@@ -692,16 +686,16 @@ button {
     z-index: 1;
     top: 50%;
     display: grid;
-    width: 32px;
+    min-width: 68px;
     height: 32px;
     place-items: center;
-    padding: 0 0 3px;
+    padding: 0 0.65rem;
     border: 0;
-    border-radius: 50%;
+    border-radius: 999px;
     background: rgba(255, 255, 255, 0.92);
     color: #444;
     font: inherit;
-    font-size: 1.35rem;
+    font-size: 0.65rem;
     line-height: 1;
     cursor: pointer;
     transform: translateY(-50%);
@@ -897,16 +891,16 @@ button {
     z-index: 1;
     top: 50%;
     display: grid;
-    width: 32px;
+    min-width: 68px;
     height: 32px;
     place-items: center;
-    padding: 0 0 3px;
+    padding: 0 0.65rem;
     border: 0;
-    border-radius: 50%;
+    border-radius: 999px;
     background: rgba(255, 255, 255, 0.92);
     color: #444;
     font: inherit;
-    font-size: 1.35rem;
+    font-size: 0.65rem;
     line-height: 1;
     cursor: pointer;
     transform: translateY(-50%);
