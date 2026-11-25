@@ -563,6 +563,10 @@ button {
     background: #fff;
 }
 
+.necklace-panel {
+    flex-direction: row-reverse;
+}
+
 .motion-panel {
     display: grid;
     grid-template-columns: minmax(0, 3.8fr) minmax(0, 1fr);
