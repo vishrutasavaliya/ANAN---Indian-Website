@@ -2459,7 +2459,7 @@ a:focus-visible {
 
     .category-panel {
         display: block;
-        padding: 3rem 0 3.5rem;
+        padding: 3rem 0 2rem;
     }
 
     .panel-intro {
@@ -2476,7 +2476,24 @@ a:focus-visible {
     }
 
     .feature-pair-panel {
-        height: min(64svh, 520px);
+        display: flex;
+        height: min(52svh, 420px);
+        gap: 0.75rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 1rem;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .feature-pair-panel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .feature-pair-panel .alpha-feature-link {
+        flex: 0 0 min(82vw, 320px);
+        height: 100%;
+        scroll-snap-align: start;
     }
 
     .home-footer {
@@ -2534,9 +2551,9 @@ a:focus-visible {
 
     .motion-panel {
         grid-template-columns: 1fr;
-        gap: 1.75rem;
+        gap: 1.25rem;
         min-height: 0;
-        padding: 2.5rem 1rem;
+        padding: 2rem 1rem;
     }
 
     .motion-videos {
@@ -2553,18 +2570,19 @@ a:focus-visible {
     }
 
     .motion-video-card {
-        flex: 0 0 min(78vw, 320px);
-        height: min(68svh, 600px);
+        flex: 0 0 min(68vw, 280px);
+        height: min(48svh, 420px);
         scroll-snap-align: start;
     }
 
     .motion-video-card figcaption {
-        bottom: 1.75rem;
+        bottom: 1rem;
         padding: 1.4rem 0.45rem 0.35rem;
-        font-size: 0.464rem;
+        font-size: 0.64rem;
     }
 
     .motion-copy {
+        order: -1;
         width: 100%;
         padding: 0 0.25rem;
     }
@@ -2575,7 +2593,7 @@ a:focus-visible {
 
     .motion-copy p {
         margin-top: 0.8rem;
-        font-size: 0.72rem;
+        font-size: 0.82rem;
     }
 
     .awards-video-panel {
@@ -2600,11 +2618,15 @@ a:focus-visible {
     .panel-intro > p:not(.eyebrow) {
         max-width: 18rem;
         margin: 0.8rem 0;
-        font-size: 0.64rem;
+        font-size: 0.75rem;
     }
 
     .text-link {
-        font-size: 0.576rem;
+        font-size: 0.68rem;
+    }
+
+    .category-panel .category-cta {
+        font-size: 0.72rem;
     }
 
     .home-category-rail {
@@ -2631,6 +2653,7 @@ a:focus-visible {
         right: 0.8rem;
         bottom: 0.8rem;
         left: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .closing-photo {
