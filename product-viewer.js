@@ -69,10 +69,11 @@
     function renderProduct() {
         const product = products[activeIndex];
         zoom = 1;
-        image.src = product.image;
+        image.src = `optimized/${product.image}`;
+        image.dataset.fullResolution = '';
         image.alt = product.alt;
         image.style.transform = 'translate(-50%, -50%) scale(1)';
-        backdrop.src = product.image;
+        backdrop.src = `optimized/${product.image}`;
         title.textContent = product.collection;
         count.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(products.length).padStart(2, '0')}`;
         previousButton.disabled = activeIndex === 0;
@@ -120,6 +121,12 @@
         nextZoom = Math.min(4, Math.max(1, nextZoom));
         if (nextZoom === zoom) {
             return;
+        }
+
+        const fullResolutionImage = products[activeIndex].image;
+        if (nextZoom > 1 && image.dataset.fullResolution !== fullResolutionImage) {
+            image.src = fullResolutionImage;
+            image.dataset.fullResolution = fullResolutionImage;
         }
 
         zoom = nextZoom;

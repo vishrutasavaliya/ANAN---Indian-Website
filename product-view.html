@@ -107,9 +107,10 @@
         let offsetX = 0;
         let offsetY = 0;
 
-        image.src = imagePath;
+        image.src = `optimized/${imagePath}`;
+        image.fetchPriority = 'high';
         image.alt = title;
-        backdrop.src = imagePath;
+        backdrop.src = `optimized/${imagePath}`;
         pageTitle.textContent = collectionTitle;
         document.title = `${title} | ANAN`;
         image.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -120,6 +121,11 @@
             nextZoom = Math.min(4, Math.max(1, nextZoom));
             if (nextZoom === zoom) {
                 return;
+            }
+
+            if (nextZoom > 1 && image.dataset.fullResolution !== imagePath) {
+                image.src = imagePath;
+                image.dataset.fullResolution = imagePath;
             }
 
             const bounds = stage.getBoundingClientRect();

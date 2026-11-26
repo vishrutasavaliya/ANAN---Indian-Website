@@ -130,9 +130,11 @@
 
             const image = document.createElement('img');
             image.className = 'collection-design-image';
-            image.src = imagePath;
+            image.src = `optimized/${imagePath}`;
             image.alt = `${labels[group]} design ${index + 1}`;
             image.loading = index === 0 ? 'eager' : 'lazy';
+            image.fetchPriority = index === 0 ? 'high' : 'auto';
+            image.decoding = 'async';
 
             const title = document.createElement('span');
             title.className = 'collection-design-title';

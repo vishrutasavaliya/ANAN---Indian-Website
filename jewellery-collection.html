@@ -111,7 +111,7 @@
                 intro: 'Discover ANAN brooches, crafted as wearable keepsakes.',
                 images: [
                     ['BROOCH', 'AJB-7588.JPG'], ['BROOCH', 'AJB-7683(1).JPG'], ['BROOCH', 'AJB-7683.JPG'],
-                    ['BROOCH', 'AJB-7701 (2).jpg'], ['BROOCH', 'AJB-7701 (3).JPG'], ['BROOCH', 'AJB-7701(1).JPG'],
+                    ['BROOCH', 'AJB-7701 (3).JPG'], ['BROOCH', 'AJB-7701(1).JPG'],
                     ['BROOCH', 'AJB-7701.JPG'], ['BROOCH', 'AJB-7919(1).JPG'], ['BROOCH', 'AJB-7919.JPG'],
                     ['BROOCH', 'AJB-8564.JPG'], ['BROOCH', 'AJB-8573.JPG'], ['BROOCH', 'AJB-8774 (1).JPG'],
                     ['BROOCH', 'AJB-8774.JPG'], ['BROOCH', 'AJB-8822 (1).JPG'], ['BROOCH', 'AJB-8822.JPG'],
@@ -212,9 +212,11 @@
 
             const image = document.createElement('img');
             image.className = 'collection-design-image';
-            image.src = imagePath;
+            image.src = `optimized/${imagePath}`;
             image.alt = `${label} design ${index + 1}`;
             image.loading = imageIndex === 0 ? 'eager' : 'lazy';
+            image.fetchPriority = imageIndex === 0 ? 'high' : 'auto';
+            image.decoding = 'async';
 
             const title = document.createElement('span');
             title.className = 'collection-design-title';
